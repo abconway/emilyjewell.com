@@ -14,6 +14,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './assets/dist/'),
     filename: '[name]-[hash].js',
+    publicPath: 'http://localhost:3000/assets/bundles/',
   },
 
   module: {
@@ -33,15 +34,17 @@ module.exports = {
   },
 
   plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
       new BundleTracker({path: __dirname, filename: './assets/webpack-stats.json'})
   ],
 
   resolve: {
-        modules: [
+      modules: [
           'node_modules',
           path.resolve(__dirname, './node_modules')
-        ],
-        extensions: ['.js', '.jsx']
+      ],
+      extensions: ['.js', '.jsx']
     }
 
 };
