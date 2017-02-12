@@ -8,7 +8,7 @@ module.exports = {
   context: path.resolve(__dirname, './assets'),
 
   entry: {
-    app: './js/app.js',
+    app: './js/index.js',
   },
 
   output: {
