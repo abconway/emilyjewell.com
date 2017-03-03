@@ -4,7 +4,7 @@
       {{ value.title }}
     </div>
     <div class='description'>
-      {{ value.description }}
+      <span v-html="htmlDescription"></span>
     </div>
     <div class='created'>
       created on {{ value.created }}
@@ -16,10 +16,17 @@
 </template>
 
 <script>
+import marked from 'marked'
+
 export default {
   props: [
     'value',
-  ]
+  ],
+  data() {
+    return {
+      'htmlDescription': marked(this.value.description)
+    }
+  },
 }
 </script>
 
