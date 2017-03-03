@@ -3,8 +3,8 @@
     <div class='title'>
       {{ value.title }}
     </div>
-    <div class='body'>
-      {{ value.body }}
+    <div class='description'>
+      {{ value.description }}
     </div>
     <div class='created'>
       created on {{ value.created }}
