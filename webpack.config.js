@@ -5,16 +5,16 @@ const BundleTracker  = require('webpack-bundle-tracker');
 
 module.exports = {
 
-  context: path.resolve(__dirname, './assets'),
+  context: path.resolve(__dirname, './src'),
 
   entry: {
-    app: './js/index.js',
+    app: 'app.js',
   },
 
   output: {
-    path: path.resolve(__dirname, './assets/dist/'),
+    path: path.resolve(__dirname, './dist/'),
     filename: '[name]-[hash].js',
-    publicPath: 'http://localhost:3000/assets/bundles/',
+    publicPath: 'http://localhost:3000/src/bundles/',
   },
 
   module: {
@@ -26,25 +26,37 @@ module.exports = {
           'babel-loader',
           {
             loader: 'babel-loader',
-            options: { presets: ['es2015', 'react'] },
+            options: { presets: ['es2015', 'stage-2'] },
           }
         ],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          postcss: [
+            require('autoprefixer')({
+              browsers: ['last 3 versions']
+            })
+          ]
+        }
+      }
     ],
   },
 
   plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
-      new BundleTracker({path: __dirname, filename: './assets/webpack-stats.json'})
+      new BundleTracker({path: __dirname, filename: './webpack-stats.json'})
   ],
 
   resolve: {
       modules: [
           'node_modules',
+          path.join(__dirname, 'src'),
           path.resolve(__dirname, './node_modules')
       ],
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx'],
     }
 
 };
