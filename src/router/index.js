@@ -6,8 +6,8 @@ import Goodbye from 'views/Goodbye.vue'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {path: '/', component: Home},
-    {path: '/goodbye', component: Goodbye}
-  ]
+    routes: [
+        {path: '/', component: Home},
+        {path: '/goodbye', component: Goodbye}
+    ]
 })

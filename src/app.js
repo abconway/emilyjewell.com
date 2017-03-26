@@ -6,9 +6,9 @@ import { sync } from 'vuex-router-sync'
 sync(store, router)
 
 const app = new Vue({
-  router,
-  store,
-  ...App
+    router,
+    store,
+    ...App
 })
 
 app.$mount('#app')
