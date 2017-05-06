@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from 'views/Home.vue'
-import Goodbye from 'views/Goodbye.vue'
+import News from 'views/News.vue'
+import Bio from 'views/Bio.vue'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
-        {path: '/', component: Home},
-        {path: '/goodbye', component: Goodbye}
+        {path: '/news', component: News},
+        {path: '/Bio', component: Bio},
     ]
 })

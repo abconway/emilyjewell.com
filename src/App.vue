@@ -2,7 +2,8 @@
     <div id='app-container'>
         <div id='app-nav'>
             <router-link to="/">Home</router-link>
-            <router-link to="/goodbye">Goodbye</router-link>
+            <router-link to="/news">News</router-link>
+            <router-link to="/bio">Bio</router-link>
         </div>
         <div id='app-content'>
             <transition name="fade" mode="out-in">
@@ -18,8 +19,11 @@
         margin: 0;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
+    #app-nav {
+        text-align: center;
+        margin: 0.5em;
+    }
     #app-content {
-        /* We center all page content here */
         display: flex;
         justify-content: center;
     }

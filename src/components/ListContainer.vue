@@ -18,5 +18,8 @@ export default {
 <style scoped>
     ul {
         list-style: none;
+        width: 600px;
+        padding: 0;
+        margin: 0;
     }
 </style>
