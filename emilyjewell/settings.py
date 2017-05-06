@@ -22,6 +22,7 @@ INSTALLED_APPS = [
 
     'bio',
     'news',
+    'press',
 ]
 
 MIDDLEWARE = [
