@@ -1,16 +1,16 @@
 <template>
     <ul>
-        <list-item v-for="value in values" :value= "value">
-        </list-item>
+        <news-list-item v-for="value in values" :value= "value">
+        </news-list-item>
     </ul>
 </template>
 
 <script>
-import ListItem from 'components/ListItem.vue'
+import NewsListItem from 'components/NewsListItem.vue'
 export default {
     props: ['values'],
     components: {
-        listItem: ListItem,
+        newsListItem: NewsListItem,
     }
 }
 </script>

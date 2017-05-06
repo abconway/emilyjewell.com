@@ -1,25 +1,25 @@
 <template>
     <div>
-        <list-header></list-header>
-        <list-container v-bind:values='listItems'></list-container>
+        <news-header></news-header>
+        <news-container v-bind:values='newsItems'></news-container>
     </div>
 </template>
 
 <script>
-    import Header from 'components/Header.vue'
-    import ListContainer from 'components/listContainer.vue'
+    import NewsHeader from 'components/NewsHeader.vue'
+    import NewsContainer from 'components/NewsContainer.vue'
 
     export default {
         components: {
-            listHeader: Header,
-            listContainer: ListContainer,
+            newsHeader: NewsHeader,
+            newsContainer: NewsContainer,
         },
         mounted() {
-            this.$store.dispatch('getAllListItems')
+            this.$store.dispatch('getAllNewsItems')
         },
         computed: {
-            listItems() {
-                return this.$store.getters.allListItems
+            newsItems() {
+                return this.$store.getters.allNewsItems
             }
         }
     }

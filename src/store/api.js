@@ -1,14 +1,19 @@
 export default {
     headers: {
     },
-
     endpoints: {
-        'allListItems': 'http://localhost:8000/api/news-items',
+        'allNewsItems': 'http://localhost:8000/api/news-items',
+        'allBioParagraphs': 'http://localhost:8000/api/bio-paragraphs',
     },
-
-    getAllListItems() {
+    getAllNewsItems() {
         let init = {method: 'GET', headers: this.headers}
-        return fetch(this.endpoints.allListItems, init)
+        return fetch(this.endpoints.allNewsItems, init)
+              .then(response => response.json())
+              .catch(error => Object.create({failed: true, reason: error.message}))
+    },
+    getAllBioParagraphs() {
+        let init = {method: 'GET', headers: this.headers}
+        return fetch(this.endpoints.allBioParagraphs, init)
               .then(response => response.json())
               .catch(error => Object.create({failed: true, reason: error.message}))
     },

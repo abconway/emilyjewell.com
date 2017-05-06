@@ -1,24 +1,20 @@
 <template>
     <div>
-        <p>Sup</p>
+        <p>{{ bioParagraphs }}</p>
     </div>
 </template>
 
 <script>
-    import Header from 'components/Header.vue'
-    import ListContainer from 'components/listContainer.vue'
 
     export default {
         components: {
-            listHeader: Header,
-            listContainer: ListContainer,
         },
         mounted() {
-            this.$store.dispatch('getAllListItems')
+            this.$store.dispatch('getAllBioParagraphs')
         },
         computed: {
-            listItems() {
-                return this.$store.getters.allListItems
+            bioParagraphs() {
+                return this.$store.getters.allBioParagraphs
             }
         }
     }

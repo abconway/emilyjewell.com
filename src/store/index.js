@@ -7,23 +7,32 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        listItems: {}
+        newsItems: {},
+        bioParagraphs: {},
     },
 
     getters: {
-        allListItems: state => state.listItems,
+        allNewsItems: state => state.newsItems,
+        allBioParagraphs: state => state.bioParagraphs,
     },
 
     mutations: {
-        [types.GET_ALL_LIST_ITEMS] (state, payload) {
-            state.listItems = payload
+        [types.GET_ALL_NEWS_ITEMS] (state, payload) {
+            state.newsItems = payload
+        },
+        [types.GET_ALL_BIO_PARAGRAPHS] (state, payload) {
+            state.bioParagraphs = payload
         },
     },
 
     actions: {
-        getAllListItems({ commit, state }) {
-            state.listItems = {}
-            api.getAllListItems().then(data => commit(types.GET_ALL_LIST_ITEMS, data))
+        getAllNewsItems({ commit, state }) {
+            state.newsItems = {}
+            api.getAllNewsItems().then(data => commit(types.GET_ALL_NEWS_ITEMS, data))
+        },
+        getAllBioParagraphs({ commit, state }) {
+            state.bioParagraphs = {}
+            api.getAllBioParagraphs().then(data => commit(types.GET_ALL_BIO_PARAGRAPHS, data))
         },
     }
 })

@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'api/', include('news.api.urls')),
+    url(r'api/', include('bio.api.urls')),
 ]
