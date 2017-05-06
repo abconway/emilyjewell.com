@@ -7,6 +7,7 @@
 
 <script>
 import NewsListItem from 'components/NewsListItem.vue'
+
 export default {
     props: ['values'],
     components: {

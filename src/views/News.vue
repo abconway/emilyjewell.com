@@ -1,18 +1,18 @@
 <template>
     <div>
         <news-header></news-header>
-        <news-container v-bind:values='newsItems'></news-container>
+        <news-items-container v-bind:values='newsItems'></news-items-container>
     </div>
 </template>
 
 <script>
     import NewsHeader from 'components/NewsHeader.vue'
-    import NewsContainer from 'components/NewsContainer.vue'
+    import NewsItemsContainer from 'components/NewsItemsContainer.vue'
 
     export default {
         components: {
             newsHeader: NewsHeader,
-            newsContainer: NewsContainer,
+            newsItemsContainer: NewsItemsContainer,
         },
         mounted() {
             this.$store.dispatch('getAllNewsItems')

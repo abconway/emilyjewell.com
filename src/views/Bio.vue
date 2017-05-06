@@ -1,13 +1,18 @@
 <template>
     <div>
-        <p>{{ bioParagraphs }}</p>
+        <bio-header></bio-header>
+        <bio-paragraphs-container v-bind:values='bioParagraphs'></bio-paragraphs-container>
     </div>
 </template>
 
 <script>
+    import BioHeader from 'components/BioHeader.vue'
+    import BioParagraphsContainer from 'components/BioParagraphsContainer.vue'
 
     export default {
         components: {
+            bioHeader: BioHeader,
+            bioParagraphsContainer: BioParagraphsContainer,
         },
         mounted() {
             this.$store.dispatch('getAllBioParagraphs')
