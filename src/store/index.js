@@ -9,11 +9,13 @@ const store = new Vuex.Store({
     state: {
         newsItems: {},
         bioParagraphs: {},
+        pressShows: {},
     },
 
     getters: {
         allNewsItems: state => state.newsItems,
         allBioParagraphs: state => state.bioParagraphs,
+        allPressShows: state => state.pressShows,
     },
 
     mutations: {
@@ -22,6 +24,9 @@ const store = new Vuex.Store({
         },
         [types.GET_ALL_BIO_PARAGRAPHS] (state, payload) {
             state.bioParagraphs = payload
+        },
+        [types.GET_ALL_PRESS_SHOWS] (state, payload) {
+            state.pressShows = payload
         },
     },
 
@@ -33,6 +38,10 @@ const store = new Vuex.Store({
         getAllBioParagraphs({ commit, state }) {
             state.bioParagraphs = {}
             api.getAllBioParagraphs().then(data => commit(types.GET_ALL_BIO_PARAGRAPHS, data))
+        },
+        getAllPressShows({ commit, state }) {
+            state.pressShows = {}
+            api.getAllPressShows().then(data => commit(types.GET_ALL_PRESS_SHOWS, data))
         },
     }
 })
