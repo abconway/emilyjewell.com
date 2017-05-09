@@ -3,7 +3,7 @@ all: build
 build: install migrate run
 
 compile-assets:
-	./node_modules/.bin/webpack --config webpack.config.bundle.js
+	./node_modules/.bin/webpack --config webpack.bundle.config.js
 
 drop-db:
 	rm db.sqlite3
