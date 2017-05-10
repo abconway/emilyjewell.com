@@ -5,5 +5,6 @@ db.sqlite3
 webpack-stats.json
 
 .idea
-dist
 node_modules
+static
+venv
