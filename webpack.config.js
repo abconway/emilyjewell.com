@@ -12,9 +12,9 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, './dist/'),
+    path: path.resolve(__dirname, './static/dist/'),
     filename: '[name]-[hash].js',
-    publicPath: 'http://localhost:3000/src/bundles/',
+    publicPath: 'http://localhost:3000/static/bundles/',
   },
 
   module: {
