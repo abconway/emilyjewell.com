@@ -9,15 +9,15 @@ var setupAPI = function () {
   switch(process.env.DJANGO_SETTINGS_MODULE) {
     case 'emilyjewell.settings.PRODUCTION':
       console.log('Using PRODUCTION settings');
-      apiHost = 'http://emilyjewell.com';
+      apiHost = '"http://emilyjewell.com"';
       break;
     case 'emilyjewell.settings.DEVELOPMENT':
-      apiHost = 'http://10.128.0.5';
+      apiHost = '"http://10.128.0.5"';
       console.log('Using DEVELOPMENT settings');
       break;
     case 'emilyjewell.settings.TESTING':
     default:
-      apiHost = 'http://localhost:8000';
+      apiHost = '"http://localhost:8000"';
       console.log('Using TESTING settings');
       break;
   }
