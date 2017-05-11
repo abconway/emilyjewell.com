@@ -4,6 +4,7 @@
 db.sqlite3
 webpack-stats.json
 
+.DS_Store
 .idea
 node_modules
 static
