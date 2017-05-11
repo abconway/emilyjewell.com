@@ -3,6 +3,25 @@ const webpack = require('webpack');
 const BundleTracker  = require('webpack-bundle-tracker');
 
 
+var apiHost;
+
+var setupAPI = function () {
+  switch(process.env.DJANGO_SETTINGS_MODULE) {
+    case 'emilyjewell.settings.PRODUCTION':
+      apiHost = 'http://emilyjewell.com';
+      break;
+    case 'emilyjewell.settings.DEVELOPMENT':
+      apiHost = 'http://10.128.0.5';
+      break;
+    case 'emilyjewell.settings.TESTING':
+    default:
+      apiHost = 'http://localhost:8000';
+      break;
+  }
+};
+
+setupAPI();
+
 module.exports = {
 
   context: path.resolve(__dirname, './src'),
@@ -44,7 +63,10 @@ module.exports = {
   },
 
   plugins: [
-      new BundleTracker({path: __dirname, filename: './webpack-stats.json'})
+      new BundleTracker({path: __dirname, filename: './webpack-stats.json'}),
+      new webpack.DefinePlugin({
+        __API__: apiHost
+      })
   ],
 
   resolve: {

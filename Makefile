@@ -27,3 +27,12 @@ run:
 
 venv:
 	/usr/local/bin/virtualenv venv
+
+PRODUCTION:
+	export DJANGO_SETTINGS_MODULE=emilyjewell.settings.PRODUCTION
+
+DEVELOPMENT:
+	export DJANGO_SETTINGS_MODULE=emilyjewell.settings.DEVELOPMENT
+
+TESTING:
+	export DJANGO_SETTINGS_MODULE=emilyjewell.settings.TESTING

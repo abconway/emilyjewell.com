@@ -1,10 +1,12 @@
+var apiBaseUrl = __API__;
+
 export default {
     headers: {
     },
     endpoints: {
-        'allNewsItems': 'http://localhost:8000/api/news-items',
-        'allBioParagraphs': 'http://localhost:8000/api/bio-paragraphs',
-        'allPressShows': 'http://localhost:8000/api/press/shows',
+        'allNewsItems': apiBaseUrl + '/api/news-items',
+        'allBioParagraphs': apiBaseUrl + '/api/bio-paragraphs',
+        'allPressShows': apiBaseUrl + '/api/press/shows',
     },
     getAllNewsItems() {
         let init = {method: 'GET', headers: this.headers}
