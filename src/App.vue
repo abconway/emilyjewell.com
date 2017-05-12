@@ -1,5 +1,8 @@
 <template>
     <div id='app-container'>
+        <div id='app-header'>
+            Emily Jewell
+        </div>
         <div id='app-nav'>
             <router-link to="/">Home</router-link>
             <router-link to="/news">News</router-link>
@@ -15,14 +18,48 @@
 </template>
 
 <style>
-    body, #app-container {
-        padding: 0;
+    @font-face {
+        font-family: 'halo';
+        src: url('/static/fonts/HaloHandletter.eot?') format('eot'),
+             url('/static/fonts/HaloHandletter.woff') format('woff'),
+             url('/static/fonts/HaloHandletter.ttf') format('truetype');
+    }
+    body {
         margin: 0;
+        padding: 0;
+    }
+    #app-container {
+        background-image: url('/static/images/EmilyJewellHeadshot.jpg');
+        background-repeat: no-repeat;
+        height: 1500px;
+        width: 1000px;
+        margin: 0 auto;
+        padding: 0;
+        top: 0;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    #app-header {
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        font-family: halo;
+        font-size: 10em;
+        top: 0;
     }
     #app-nav {
         text-align: center;
-        margin: 0.5em;
+        width: 80%;
+        margin: auto;
+        padding: 0.5em;
+    }
+    #app-nav a {
+        text-align: center;
+        text-decoration: none;
+	    font-weight: bold;
+	    color: black;
+        font-family: halo;
+        font-size: 3em;
+        margin: auto 0.5em;
     }
     #app-content {
         display: flex;
