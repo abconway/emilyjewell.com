@@ -6,6 +6,7 @@ webpack-stats.json
 
 .DS_Store
 .idea
+media
 node_modules
 static
 venv

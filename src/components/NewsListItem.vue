@@ -4,6 +4,7 @@
             {{ value.title }}
         </div>
         <div class='description'>
+            <img :src="value.image" width=120 height=100>
             <span v-html="htmlDescription"></span>
         </div>
         <div class='footer'>
@@ -47,6 +48,14 @@ export default {
     }
     .body {
         font-size: 1em;
+    }
+    .description {
+        min-height: 120px;
+    }
+    img {
+        float: left;
+        border: 1px solid black;
+        margin: 0.25em;
     }
     .footer {
         width: 100%;
