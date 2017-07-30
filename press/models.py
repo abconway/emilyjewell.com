@@ -1,10 +1,14 @@
 from django.db import models
+
+from image_cropping import ImageRatioField
 from django_extensions.db.models import TimeStampedModel
 
 
 class Show(TimeStampedModel):
     name = models.CharField(max_length=256)
     position = models.IntegerField()
+    image = models.ImageField(blank=True, upload_to='uploaded_images')
+    cropping = ImageRatioField('image', '540x450')
 
     class Meta:
         ordering = ('position',)
