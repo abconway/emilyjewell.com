@@ -31,7 +31,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, './emilyjewell/static/dist/'),
-    filename: '[name]-[hash].js',
+    filename: 'app.js',
   },
 
   module: {
