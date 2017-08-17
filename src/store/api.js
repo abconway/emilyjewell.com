@@ -7,6 +7,7 @@ export default {
         'allNewsItems': apiBaseUrl + '/api/news-items',
         'allBioParagraphs': apiBaseUrl + '/api/bio-paragraphs',
         'allPressShows': apiBaseUrl + '/api/press/shows',
+        'allMediaLinks': apiBaseUrl + '/api/media',
     },
     getAllNewsItems() {
         let init = {method: 'GET', headers: this.headers}

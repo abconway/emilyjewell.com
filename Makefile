@@ -6,7 +6,7 @@ collect-static:
 	./venv/bin/python manage.py collectstatic --no-input
 
 compile-assets:
-	./node_modules/.bin/webpack --config webpack.bundle.config.js
+	./node_modules/.bin/webpack --config webpack.config.js
 
 deploy: venv install migrate collect-static compile-assets
 
@@ -28,11 +28,5 @@ run:
 venv:
 	/usr/local/bin/virtualenv venv
 
-PRODUCTION:
-	export DJANGO_SETTINGS_MODULE=emilyjewell.settings.PRODUCTION
-
-DEVELOPMENT:
-	export DJANGO_SETTINGS_MODULE=emilyjewell.settings.DEVELOPMENT
-
-TESTING:
-	export DJANGO_SETTINGS_MODULE=emilyjewell.settings.TESTING
+SETTINGS:
+	export DJANGO_SETTINGS_MODULE=emilyjewell.settings

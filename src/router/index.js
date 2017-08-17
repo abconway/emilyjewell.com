@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import News from 'views/News.vue'
 import Bio from 'views/Bio.vue'
 import Press from 'views/Press.vue'
+import Media from 'views/Media.vue'
 
 Vue.use(Router)
 
@@ -11,5 +12,6 @@ export default new Router({
         {path: '/news', component: News},
         {path: '/bio', component: Bio},
         {path: '/press', component: Press},
+        {path: '/media', component: Media},
     ]
 })

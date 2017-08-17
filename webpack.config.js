@@ -6,19 +6,15 @@ const BundleTracker  = require('webpack-bundle-tracker');
 var apiHost;
 
 var setupAPI = function () {
-  switch(process.env.DJANGO_SETTINGS_MODULE) {
-    case 'emilyjewell.settings.PRODUCTION':
+  switch(process.env.NODE_ENV) {
+    case 'production':
       console.log('Using PRODUCTION settings');
       apiHost = '"http://emilyjewell.com"';
       break;
-    case 'emilyjewell.settings.DEVELOPMENT':
-      apiHost = '"http://10.128.0.5"';
-      console.log('Using DEVELOPMENT settings');
-      break;
-    case 'emilyjewell.settings.TESTING':
+    case 'local':
     default:
-      apiHost = '"http://localhost:8000"';
-      console.log('Using TESTING settings');
+      apiHost = '"http://localhost:5000"';
+      console.log('Using LOCAL settings');
       break;
   }
 };
@@ -34,9 +30,8 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, './static/dist/'),
+    path: path.resolve(__dirname, './emilyjewell/static/dist/'),
     filename: '[name]-[hash].js',
-    publicPath: 'http://localhost:3000/static/bundles/',
   },
 
   module: {
@@ -67,9 +62,7 @@ module.exports = {
   },
 
   plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
-      new BundleTracker({path: __dirname, filename: './webpack-stats.json'}),
+      new BundleTracker({path: __dirname, filename: './emilyjewell/webpack-stats.json'}),
       new webpack.DefinePlugin({
         __API__: apiHost
       })

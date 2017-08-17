@@ -4,9 +4,8 @@
 db.sqlite3
 webpack-stats.json
 
+.env
 .DS_Store
 .idea
-media
 node_modules
-static
 venv

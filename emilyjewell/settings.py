@@ -1,7 +1,10 @@
 import os
+import dj_database_url
 
-_BASE_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..')
-BASE_DIR = os.path.realpath(_BASE_DIR)
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 SECRET_KEY = '6ko5=petv(i@=7$6d)_217mvh-xtd(wd+_e8m)jd!1#^bt3t6m'
 
@@ -15,6 +18,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # Disable Django's own staticfiles handling in favour of WhiteNoise, for
+    # greater consistency between gunicorn and `./manage.py runserver`. See:
+    # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'django_extensions',
@@ -30,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,6 +60,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'debug': DEBUG,
         },
     },
 ]
@@ -64,6 +73,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# Change 'default' database configuration with $DATABASE_URL.
+DATABASES['default'] = dj_database_url.config(conn_max_age=500)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -90,23 +101,29 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'src'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': 'dist/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'STATS_FILE': os.path.join(PROJECT_ROOT, 'webpack-stats.json'),
     }
 }

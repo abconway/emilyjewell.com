@@ -5,3 +5,6 @@ django_extensions==1.7.7
 django-image-cropping==1.0.4
 easy-thumbnails==2.4.1
 honcho==0.7.1
+gunicorn==19.7.1
+dj-database-url==0.4.2
+whitenoise==3.3.0

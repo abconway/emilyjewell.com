@@ -8,6 +8,7 @@
             <router-link to="/news">News</router-link>
             <router-link to="/bio">Bio</router-link>
             <router-link to="/press">Press</router-link>
+            <router-link to="/media">Media</router-link>
         </div>
         <div id='app-content'>
             <transition name="fade" mode="out-in">
