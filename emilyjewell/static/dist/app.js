@@ -24867,7 +24867,7 @@ app.$mount('#app');
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var apiBaseUrl = "https://shrouded-waters-39859.herokuapp.com/";
+var apiBaseUrl = "https://frozen-tor-73574.herokuapp.com/";
 
 exports.default = {
     headers: {},
