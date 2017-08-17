@@ -24867,7 +24867,7 @@ app.$mount('#app');
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var apiBaseUrl = "http://localhost:5000";
+var apiBaseUrl = "https://shrouded-waters-39859.herokuapp.com";
 
 exports.default = {
     headers: {},

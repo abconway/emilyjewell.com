@@ -11,6 +11,10 @@ var setupAPI = function () {
       console.log('Using PRODUCTION settings');
       apiHost = '"http://emilyjewell.com"';
       break;
+    case 'uat':
+      console.log('Using UAT settings');
+      apiHost = '"https://shrouded-waters-39859.herokuapp.com"';
+      break;
     case 'local':
     default:
       apiHost = '"http://localhost:5000"';
