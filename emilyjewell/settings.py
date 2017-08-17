@@ -26,7 +26,6 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'rest_framework',
-    'webpack_loader',
     'easy_thumbnails',
     'image_cropping',
 
