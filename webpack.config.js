@@ -13,7 +13,7 @@ var setupAPI = function () {
       break;
     case 'uat':
       console.log('Using UAT settings');
-      apiHost = '"https://shrouded-waters-39859.herokuapp.com"';
+      apiHost = '"https://shrouded-waters-39859.herokuapp.com/"';
       break;
     case 'local':
     default:
