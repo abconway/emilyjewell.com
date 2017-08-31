@@ -7,7 +7,7 @@ export default {
         'allNewsItems': apiBaseUrl + '/api/news-items',
         'allBioParagraphs': apiBaseUrl + '/api/bio-paragraphs',
         'allPressShows': apiBaseUrl + '/api/press/shows',
-        'allMediaLinks': apiBaseUrl + '/api/media',
+        'allMediaItems': apiBaseUrl + '/api/media-items',
     },
     getAllNewsItems() {
         let init = {method: 'GET', headers: this.headers}
@@ -26,5 +26,11 @@ export default {
         return fetch(this.endpoints.allPressShows, init)
                .then(response => response.json())
                .catch(error => Object.create({failed: true, reason: error.message}))
+    },
+    getAllMediaItems() {
+        let init = {method: 'GET', headers: this.headers}
+        return fetch(this.endpoints.allMediaItems, init)
+              .then(response => response.json())
+              .catch(error => Object.create({failed: true, reason: error.message}))
     },
 }

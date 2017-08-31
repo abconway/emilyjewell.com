@@ -1,6 +1,7 @@
 <template>
     <div>
         Media
+        {{ mediaItems }}
     </div>
 </template>
 
@@ -12,11 +13,11 @@
             mediaItem: MediaItem,
         },
         mounted() {
-            this.$store.dispatch('getAllPressShows')
+            this.$store.dispatch('getAllMediaItems')
         },
         computed: {
-            pressShows() {
-                return this.$store.getters.allPressShows
+            mediaItems() {
+                return this.$store.getters.allMediaItems
             }
         }
     }

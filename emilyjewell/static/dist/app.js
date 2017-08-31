@@ -24654,7 +24654,8 @@ var store = new _vuex2.default.Store({
     state: {
         newsItems: {},
         bioParagraphs: {},
-        pressShows: {}
+        pressShows: {},
+        mediaItems: {}
     },
 
     getters: {
@@ -24666,6 +24667,9 @@ var store = new _vuex2.default.Store({
         },
         allPressShows: function allPressShows(state) {
             return state.pressShows;
+        },
+        allMediaItems: function allMediaItems(state) {
+            return state.mediaItems;
         }
     },
 
@@ -24675,6 +24679,8 @@ var store = new _vuex2.default.Store({
         state.bioParagraphs = payload;
     }), _defineProperty(_mutations, _mutationTypes2.default.GET_ALL_PRESS_SHOWS, function (state, payload) {
         state.pressShows = payload;
+    }), _defineProperty(_mutations, _mutationTypes2.default.GET_ALL_MEDIA_ITEMS, function (state, payload) {
+        state.mediaItems = payload;
     }), _mutations),
 
     actions: {
@@ -24703,6 +24709,15 @@ var store = new _vuex2.default.Store({
             state.pressShows = {};
             _api2.default.getAllPressShows().then(function (data) {
                 return commit(_mutationTypes2.default.GET_ALL_PRESS_SHOWS, data);
+            });
+        },
+        getAllMediaItems: function getAllMediaItems(_ref4) {
+            var commit = _ref4.commit,
+                state = _ref4.state;
+
+            state.mediaItems = {};
+            _api2.default.getAllMediaItems().then(function (data) {
+                return commit(_mutationTypes2.default.GET_ALL_MEDIA_ITEMS, data);
             });
         }
     }
@@ -24867,7 +24882,7 @@ app.$mount('#app');
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var apiBaseUrl = "https://frozen-tor-73574.herokuapp.com/";
+var apiBaseUrl = "http://localhost:5000";
 
 exports.default = {
     headers: {},
@@ -24875,7 +24890,7 @@ exports.default = {
         'allNewsItems': apiBaseUrl + '/api/news-items',
         'allBioParagraphs': apiBaseUrl + '/api/bio-paragraphs',
         'allPressShows': apiBaseUrl + '/api/press/shows',
-        'allMediaLinks': apiBaseUrl + '/api/media'
+        'allMediaItems': apiBaseUrl + '/api/media-items'
     },
     getAllNewsItems: function getAllNewsItems() {
         var init = { method: 'GET', headers: this.headers };
@@ -24900,6 +24915,14 @@ exports.default = {
         }).catch(function (error) {
             return Object.create({ failed: true, reason: error.message });
         });
+    },
+    getAllMediaItems: function getAllMediaItems() {
+        var init = { method: 'GET', headers: this.headers };
+        return fetch(this.endpoints.allMediaItems, init).then(function (response) {
+            return response.json();
+        }).catch(function (error) {
+            return Object.create({ failed: true, reason: error.message });
+        });
     }
 };
 
@@ -24916,7 +24939,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
     GET_ALL_NEWS_ITEMS: 'GET_ALL_NEWS_ITEMS',
     GET_ALL_BIO_PARAGRAPHS: 'GET_ALL_BIO_PARAGRAPHS',
-    GET_ALL_PRESS_SHOWS: 'GET_ALL_PRESS_SHOWS'
+    GET_ALL_PRESS_SHOWS: 'GET_ALL_PRESS_SHOWS',
+    GET_ALL_MEDIA_ITEMS: 'GET_ALL_MEDIA_ITEMS'
 };
 
 /***/ }),
@@ -25224,6 +25248,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -25232,11 +25257,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         mediaItem: __WEBPACK_IMPORTED_MODULE_0_components_MediaItem_vue___default.a
     },
     mounted() {
-        this.$store.dispatch('getAllPressShows');
+        this.$store.dispatch('getAllMediaItems');
     },
     computed: {
-        pressShows() {
-            return this.$store.getters.allPressShows;
+        mediaItems() {
+            return this.$store.getters.allMediaItems;
         }
     }
 });
@@ -26568,7 +26593,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    Media\n")])
+  return _c('div', [_vm._v("\n    Media\n    " + _vm._s(_vm.mediaItems) + "\n")])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
