@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'api/', include('news.api.urls')),
     url(r'api/', include('bio.api.urls')),
+    url(r'api/', include('media.api.urls')),
     url(r'api/press/', include('press.api.urls')),
 ]
 
