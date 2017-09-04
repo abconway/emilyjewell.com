@@ -7,7 +7,7 @@
             <router-link to="/">Home</router-link>
             <router-link to="/news">News</router-link>
             <router-link to="/bio">Bio</router-link>
-            <router-link to="/resume">Resume</router-link>
+            <router-link to="/resume">R&eacute;sum&eacute;</router-link>
             <router-link to="/press">Press</router-link>
             <router-link to="/media">Media</router-link>
         </div>
