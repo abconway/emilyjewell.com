@@ -9,7 +9,7 @@ export default {
         'allPressShows': apiBaseUrl + '/api/press/shows',
         'allMediaItems': apiBaseUrl + '/api/media-items',
         'allMediaItems': apiBaseUrl + '/api/media-items',
-        'resume': apiBaseUrl + '/api/resumes',
+        'resume': apiBaseUrl + '/api/resumes/',
     },
     getAllNewsItems() {
         let init = {method: 'GET', headers: this.headers}
