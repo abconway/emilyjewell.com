@@ -10,4 +10,5 @@ webpack-stats.json
 node_modules
 venv
 
-uploaded
+uploaded/images
+uploaded/resumes
