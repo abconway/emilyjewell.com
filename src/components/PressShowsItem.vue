@@ -1,7 +1,9 @@
 <template>
     <li>
         <h2 class='name'>{{ value.name }}</h2>
-        <img :src="value.image" width=540 height=450>
+        <div class='image-container'>
+            <img :src="value.image" width=550 height=330>
+        </div>
         <press-quotes-container :values="quotes">
         </press-quotes-container>
     </li>
@@ -38,5 +40,10 @@
         text-align: center;
         margin: 0;
         padding: 0;
+    }
+    .image-container {
+        text-align: center;
+        margin: 0 auto;
+
     }
 </style>

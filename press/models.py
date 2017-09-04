@@ -8,7 +8,7 @@ class Show(TimeStampedModel):
     name = models.CharField(max_length=256)
     position = models.IntegerField()
     image = models.ImageField(blank=True, upload_to='uploaded_images')
-    cropping = ImageRatioField('image', '540x450')
+    cropping = ImageRatioField('image', '550x330')
 
     class Meta:
         ordering = ('position',)

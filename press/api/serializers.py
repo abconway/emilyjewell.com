@@ -18,7 +18,7 @@ class ShowSerializer(serializers.ModelSerializer):
         return get_backend().get_thumbnail_url(
             instance.image,
             {
-                'size': (540, 450),
+                'size': (550, 330),
                 'box': instance.cropping,
                 'crop': True,
                 'detail': True,
