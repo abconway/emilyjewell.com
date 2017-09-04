@@ -5,7 +5,7 @@ from django_extensions.db.models import TimeStampedModel, TitleSlugDescriptionMo
 
 
 class NewsItem(TitleSlugDescriptionModel, TimeStampedModel):
-    image = models.ImageField(blank=True, upload_to='uploaded_images')
+    image = models.ImageField(blank=True, upload_to='images')
     cropping = ImageRatioField('image', '430x360')
 
     class Meta:

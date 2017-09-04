@@ -4,7 +4,7 @@ from django_extensions.db.models import TimeStampedModel, TitleSlugDescriptionMo
 
 
 class Resume(TitleSlugDescriptionModel, TimeStampedModel):
-    pdf = models.FileField(blank=True, upload_to='uploaded_files')
+    pdf = models.FileField(blank=True, upload_to='resumes')
     active = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):

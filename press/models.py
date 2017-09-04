@@ -7,7 +7,7 @@ from django_extensions.db.models import TimeStampedModel
 class Show(TimeStampedModel):
     name = models.CharField(max_length=256)
     position = models.IntegerField()
-    image = models.ImageField(blank=True, upload_to='uploaded_images')
+    image = models.ImageField(blank=True, upload_to='images')
     cropping = ImageRatioField('image', '550x330')
 
     class Meta:
