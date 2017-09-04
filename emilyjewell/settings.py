@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'news',
     'press',
     'media',
+    'resume',
 ]
 
 MIDDLEWARE = [

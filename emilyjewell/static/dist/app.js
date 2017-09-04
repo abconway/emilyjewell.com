@@ -25052,8 +25052,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_marked__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_marked___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_marked__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
 //
 //
 //
@@ -25066,15 +25064,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
@@ -25082,9 +25071,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['value'],
     data() {
         return {
-            'htmlDescription': __WEBPACK_IMPORTED_MODULE_0_marked___default()(this.value.description),
-            'dateCreated': __WEBPACK_IMPORTED_MODULE_1_moment___default()(this.value.created).format('YYYY-MM-DD HH:MM'),
-            'dateModified': __WEBPACK_IMPORTED_MODULE_1_moment___default()(this.value.modified).format('YYYY-MM-DD HH:MM')
+            'htmlDescription': __WEBPACK_IMPORTED_MODULE_0_marked___default()(this.value.description)
         };
     }
 });
@@ -25180,6 +25167,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -25242,6 +25231,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_MediaItem_vue__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_MediaItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_components_MediaItem_vue__);
+//
+//
+//
 //
 //
 //
@@ -25459,7 +25451,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\ndiv[data-v-59eab7cc] {\n    width: 600px;\n    background-color: rgba(220,220,220,0.8);\n    border-radius: 15px;\n    -webkit-border-radius: 15px;\n    -moz-border-radius: 15px;\n}\n", ""]);
+exports.push([module.i, "\nul[data-v-59eab7cc] {\n    list-style-type: none;\n}\nli[data-v-59eab7cc] {\n    text-align: center;\n    vertical-align: middle;\n    margin: 0.2em;\n    width: 600px;\n    background-color: rgba(220,220,220,0.8);\n    border-radius: 15px;\n    -webkit-border-radius: 15px;\n    -moz-border-radius: 15px;\n}\niframe[data-v-59eab7cc] {\n    padding: 0.1em;\n}\n\n", ""]);
 
 // exports
 
@@ -25473,7 +25465,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\nli[data-v-6b771ef4] {\n    margin: 0.25em;\n    padding: 0.5em;\n    border-top: 1px solid black;\n}\n.title[data-v-6b771ef4] {\n    font-size: 1.5em;\n    text-align: center;\n}\n.body[data-v-6b771ef4] {\n    font-size: 1em;\n}\n.description[data-v-6b771ef4] {\n    min-height: 120px;\n}\nimg[data-v-6b771ef4] {\n    float: left;\n    border: 1px solid black;\n    margin: 0.25em;\n}\n.footer[data-v-6b771ef4] {\n    width: 100%;\n    height: 0.5em;\n    margin: 0.25em;\n}\n.created[data-v-6b771ef4] {\n    font-size: 0.5em;\n    float: left;\n    margin-left: 1em;\n}\n.modified[data-v-6b771ef4] {\n    font-size: 0.5em;\n    float: right;\n    margin-right: 1em;\n}\n", ""]);
+exports.push([module.i, "\nli[data-v-6b771ef4] {\n    margin: 0.25em;\n    padding: 0.5em;\n    border-top: 1px solid black;\n}\n.title[data-v-6b771ef4] {\n    font-size: 1.5em;\n    text-align: center;\n}\n.body[data-v-6b771ef4] {\n    font-size: 1em;\n}\n.description[data-v-6b771ef4] {\n    min-height: 120px;\n}\nimg[data-v-6b771ef4] {\n    float: left;\n    border: 1px solid black;\n    margin: 0.25em;\n}\n", ""]);
 
 // exports
 
@@ -25529,7 +25521,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\nli[data-v-c020e914] {\n    margin: 0.25em;\n    padding: 0.5em;\n    border-top: 1px solid black;\n}\n.name[data-v-c020e914] {\n    text-align: center;\n    margin: 0;\n    padding: 0;\n}\n", ""]);
+exports.push([module.i, "\nli[data-v-c020e914] {\n    margin: 0.25em;\n    padding: 0.5em;\n    border-top: 1px solid black;\n}\n.name[data-v-c020e914] {\n    text-align: center;\n    margin: 0;\n    padding: 0;\n}\n.image-container[data-v-c020e914] {\n    text-align: center;\n    margin: 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -26593,7 +26585,17 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    Media\n    " + _vm._s(_vm.mediaItems) + "\n")])
+  return _c('div', [_c('ul', _vm._l((_vm.mediaItems), function(item) {
+    return _c('li', [_c('iframe', {
+      attrs: {
+        "width": "550",
+        "height": "330",
+        "src": item.video_url,
+        "frameborder": "0",
+        "allowfullscreen": ""
+      }
+    })], 1)
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -26622,21 +26624,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "innerHTML": _vm._s(_vm.htmlDescription)
     }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "footer"
-  }, [_c('div', {
-    staticClass: "created"
-  }, [_vm._v("\n            Created: "), _c('span', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.dateCreated)
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "modified"
-  }, [_vm._v("\n            Last edited: "), _c('span', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.dateModified)
-    }
-  })])])])
+  })])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -26743,13 +26731,15 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('h2', {
     staticClass: "name"
-  }, [_vm._v(_vm._s(_vm.value.name))]), _vm._v(" "), _c('img', {
+  }, [_vm._v(_vm._s(_vm.value.name))]), _vm._v(" "), _c('div', {
+    staticClass: "image-container"
+  }, [_c('img', {
     attrs: {
       "src": _vm.value.image,
-      "width": "540",
-      "height": "450"
+      "width": "550",
+      "height": "330"
     }
-  }), _vm._v(" "), _c('press-quotes-container', {
+  })]), _vm._v(" "), _c('press-quotes-container', {
     attrs: {
       "values": _vm.quotes
     }
