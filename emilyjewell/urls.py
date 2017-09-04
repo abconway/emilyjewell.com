@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'api/', include('news.api.urls')),
     url(r'api/', include('bio.api.urls')),
     url(r'api/', include('media.api.urls')),
+    url(r'api/', include('resume.api.urls')),
     url(r'api/press/', include('press.api.urls')),
 ]
 
