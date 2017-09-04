@@ -11,6 +11,7 @@ const store = new Vuex.Store({
         bioParagraphs: {},
         pressShows: {},
         mediaItems: {},
+        resume: {},
     },
 
     getters: {
@@ -18,6 +19,7 @@ const store = new Vuex.Store({
         allBioParagraphs: state => state.bioParagraphs,
         allPressShows: state => state.pressShows,
         allMediaItems: state => state.mediaItems,
+        resume: state => state.resume,
     },
 
     mutations: {
@@ -32,6 +34,9 @@ const store = new Vuex.Store({
         },
         [types.GET_ALL_MEDIA_ITEMS] (state, payload) {
             state.mediaItems = payload
+        },
+        [types.GET_RESUME] (state, payload) {
+            state.resume = payload
         },
     },
 
@@ -51,6 +56,10 @@ const store = new Vuex.Store({
         getAllMediaItems({ commit, state }) {
             state.mediaItems = {}
             api.getAllMediaItems().then(data => commit(types.GET_ALL_MEDIA_ITEMS, data))
+        },
+        getResume({ commit, state }) {
+            state.resume = {}
+            api.getResume().then(data => commit(types.GET_RESUME, data))
         },
     }
 })
