@@ -24912,7 +24912,7 @@ function _defineProperty(obj, key, value) {
     }return obj;
 }
 
-var apiBaseUrl = "http://localhost:5000";
+var apiBaseUrl = "https://frozen-tor-73574.herokuapp.com/";
 
 exports.default = {
     headers: {},
@@ -24921,7 +24921,7 @@ exports.default = {
         'allBioParagraphs': apiBaseUrl + '/api/bio-paragraphs',
         'allPressShows': apiBaseUrl + '/api/press/shows',
         'allMediaItems': apiBaseUrl + '/api/media-items'
-    }, _defineProperty(_endpoints, 'allMediaItems', apiBaseUrl + '/api/media-items'), _defineProperty(_endpoints, 'resume', apiBaseUrl + '/api/resumes'), _endpoints),
+    }, _defineProperty(_endpoints, 'allMediaItems', apiBaseUrl + '/api/media-items'), _defineProperty(_endpoints, 'resume', apiBaseUrl + '/api/resumes/'), _endpoints),
     getAllNewsItems: function getAllNewsItems() {
         var init = { method: 'GET', headers: this.headers };
         return fetch(this.endpoints.allNewsItems, init).then(function (response) {
@@ -26825,7 +26825,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "to": "/resume"
     }
-  }, [_vm._v("Resume")]), _vm._v(" "), _c('router-link', {
+  }, [_vm._v("Résumé")]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": "/press"
     }
