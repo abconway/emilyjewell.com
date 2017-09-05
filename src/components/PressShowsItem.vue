@@ -2,7 +2,7 @@
     <li>
         <h2 class='name'>{{ value.name }}</h2>
         <div class='image-container'>
-            <img :src="value.image" width=550 height=330>
+            <img :src="value.image.crop" width=550 height=330>
         </div>
         <press-quotes-container :values="quotes">
         </press-quotes-container>

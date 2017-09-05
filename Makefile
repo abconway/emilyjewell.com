@@ -1,14 +1,27 @@
 all: build
 
-build: venv install migrate run
+admin:
+	DJANGO_SETTINGS_MODULE=emilyjewell.settings.development ./venv/bin/python manage.py createsuperuser
+
+build: venv install compile-assets migrate run
 
 collect-static:
-	./venv/bin/python manage.py collectstatic --no-input
+	DJANGO_SETTINGS_MODULE=emilyjewell.settings.development ./venv/bin/python manage.py collectstatic --no-input
+
+collect-static-uat:
+	DJANGO_SETTINGS_MODULE=emilyjewell.settings.uat SECRET_KEY=none ALLOWED_HOSTS='[*]' ./venv/bin/python manage.py collectstatic --no-input
+
+collect-static-production:
+	DJANGO_SETTINGS_MODULE=emilyjewell.settings.production SECRET_KEY=none ALLOWED_HOSTS='[*]' ./venv/bin/python manage.py collectstatic --no-input
 
 compile-assets:
 	./node_modules/.bin/webpack --config webpack.config.js
 
-deploy: venv install migrate collect-static compile-assets
+compile-assets-uat:
+	NODE_ENV=uat ./node_modules/.bin/webpack --config webpack.config.js
+
+compile-assets-production:
+	NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js
 
 drop-db:
 	rm db.sqlite3
@@ -18,15 +31,12 @@ install:
 	./venv/bin/pip install -U -r requirements.txt
 
 migrate:
-	./venv/bin/python manage.py migrate
+	DJANGO_SETTINGS_MODULE=emilyjewell.settings.development ./venv/bin/python manage.py migrate
 
 recreate-db: drop-db migrate
 
 run:
-	./venv/bin/honcho start -f Procfile.dev
+	DJANGO_SETTINGS_MODULE=emilyjewell.settings.development heroku local web
 
 venv:
 	/usr/local/bin/virtualenv venv
-
-SETTINGS:
-	export DJANGO_SETTINGS_MODULE=emilyjewell.settings

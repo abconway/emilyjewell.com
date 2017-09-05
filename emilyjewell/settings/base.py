@@ -1,14 +1,13 @@
 import os
-import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'superdupersecretkey'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -26,8 +25,7 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'rest_framework',
-    'easy_thumbnails',
-    'image_cropping',
+    'versatileimagefield',
 
     'bio',
     'news',
@@ -74,8 +72,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-# Change 'default' database configuration with $DATABASE_URL.
-DATABASES['default'] = dj_database_url.config(conn_max_age=500)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -105,12 +101,7 @@ USE_TZ = True
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-from easy_thumbnails.conf import Settings as thumbnail_settings
-THUMBNAIL_PROCESSORS = (
-    'image_cropping.thumbnail_processors.crop_corners',
-) + thumbnail_settings.THUMBNAIL_PROCESSORS
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'uploaded')
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')

@@ -1,23 +1,17 @@
 from rest_framework import serializers
-from image_cropping.utils import get_backend
+from versatileimagefield.serializers import VersatileImageFieldSerializer
 
 from ..models import NewsItem
 
 
 class NewsItemSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
-
-    def get_image(self, instance):
-        return get_backend().get_thumbnail_url(
-            instance.image,
-            {
-                'size': (120, 100),
-                'box': instance.cropping,
-                'crop': True,
-                'detail': True,
-            },
-        )
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('full_size', 'url'),
+            ('crop', 'crop__120x100'),
+        ]
+    )
 
     class Meta:
         model = NewsItem
-        fields = ('id', 'title', 'description', 'modified', 'created', 'image')
+        fields = '__all__'

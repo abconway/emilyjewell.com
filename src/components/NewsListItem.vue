@@ -4,7 +4,7 @@
             {{ value.title }}
         </div>
         <div class='description'>
-            <img :src="value.image" width=120 height=100>
+            <img :src="value.image.crop" width=120 height=100>
             <span v-html="htmlDescription"></span>
         </div>
     </li>

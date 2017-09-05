@@ -1,12 +1,15 @@
-from django.db import models
-
-from image_cropping import ImageRatioField
 from django_extensions.db.models import TimeStampedModel, TitleSlugDescriptionModel
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
 class NewsItem(TitleSlugDescriptionModel, TimeStampedModel):
-    image = models.ImageField(blank=True, upload_to='images')
-    cropping = ImageRatioField('image', '430x360')
+    image = VersatileImageField(
+        'Image',
+        blank=True,
+        upload_to='images',
+        ppoi_field='ppoi',
+    )
+    ppoi = PPOIField('Image PPOI')
 
     class Meta:
         ordering = ('-created',)

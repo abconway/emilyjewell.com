@@ -3,6 +3,7 @@
 
 db.sqlite3
 webpack-stats.json
+package-lock.json
 
 .env
 .DS_Store
@@ -10,5 +11,5 @@ webpack-stats.json
 node_modules
 venv
 
-uploaded/images
-uploaded/resumes
+emilyjewell/uploaded
+emilyjewell/staticfiles
