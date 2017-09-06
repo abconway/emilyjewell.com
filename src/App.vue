@@ -22,16 +22,16 @@
 <style>
     @font-face {
         font-family: 'halo';
-        src: staticUrlBase + '/fonts/HaloHandletter.eot?' format('eot'),
-             staticUrlBase + '/fonts/HaloHandletter.woff' format('woff'),
-             staticUrlBase + '/fonts/HaloHandletter.ttf' format('truetype');
+        src: url('__STATIC__/fonts/HaloHandletter.eot?') format('eot'),
+             url('__STATIC__/fonts/HaloHandletter.woff') format('woff'),
+             url('__STATIC__/fonts/HaloHandletter.ttf') format('truetype');
     }
     body {
         margin: 0;
         padding: 0;
     }
     #app-container {
-        background-image: staticUrlBase + '/images/EmilyJewellHeadshot.jpg';
+        background-image: url('__STATIC__/images/EmilyJewellHeadshot.jpg');
         background-repeat: no-repeat;
         height: 1500px;
         width: 1000px;
@@ -57,8 +57,8 @@
     #app-nav a {
         text-align: center;
         text-decoration: none;
-	    font-weight: bold;
-	    color: black;
+        font-weight: bold;
+        color: black;
         font-family: halo;
         font-size: 3em;
         margin: auto 0.5em;
