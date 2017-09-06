@@ -1,4 +1,5 @@
 var apiBaseUrl = __API__;
+var staticUrlBase = __STATIC__;
 
 export default {
     headers: {

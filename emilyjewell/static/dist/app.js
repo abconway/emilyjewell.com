@@ -24913,6 +24913,7 @@ function _defineProperty(obj, key, value) {
 }
 
 var apiBaseUrl = "https://frozen-tor-73574.herokuapp.com/";
+var staticUrlBase = "https://emily-jewell-media-uat.s3.amazonaws.com";
 
 exports.default = {
     headers: {},
@@ -25573,7 +25574,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n@font-face {\n        font-family: 'halo';\n        src: url('/static/fonts/HaloHandletter.eot?') format('eot'),\n             url('/static/fonts/HaloHandletter.woff') format('woff'),\n             url('/static/fonts/HaloHandletter.ttf') format('truetype');\n}\nbody {\n        margin: 0;\n        padding: 0;\n}\n#app-container {\n        background-image: url('/static/images/EmilyJewellHeadshot.jpg');\n        background-repeat: no-repeat;\n        height: 1500px;\n        width: 1000px;\n        margin: 0 auto;\n        padding: 0;\n        top: 0;\n        font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n}\n#app-header {\n        text-align: center;\n        width: 80%;\n        margin: auto;\n        font-family: halo;\n        font-size: 10em;\n        top: 0;\n}\n#app-nav {\n        text-align: center;\n        width: 80%;\n        margin: auto;\n        padding: 0.5em;\n}\n#app-nav a {\n        text-align: center;\n        text-decoration: none;\n\t    font-weight: bold;\n\t    color: black;\n        font-family: halo;\n        font-size: 3em;\n        margin: auto 0.5em;\n}\n#app-content {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.fade-enter-active, .fade-leave-active {\n        transition: all .2s ease\n}\n.fade-enter, .fade-leave-active {\n        opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n@font-face {\n        font-family: 'halo';\n        src: staticUrlBase + '/static/fonts/HaloHandletter.eot?' format('eot'),\n             staticUrlBase + '/static/fonts/HaloHandletter.woff' format('woff'),\n             staticUrlBase + '/static/fonts/HaloHandletter.ttf' format('truetype');\n}\nbody {\n        margin: 0;\n        padding: 0;\n}\n#app-container {\n        background-image: staticUrlBase + '/static/images/EmilyJewellHeadshot.jpg';\n        background-repeat: no-repeat;\n        height: 1500px;\n        width: 1000px;\n        margin: 0 auto;\n        padding: 0;\n        top: 0;\n        font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n}\n#app-header {\n        text-align: center;\n        width: 80%;\n        margin: auto;\n        font-family: halo;\n        font-size: 10em;\n        top: 0;\n}\n#app-nav {\n        text-align: center;\n        width: 80%;\n        margin: auto;\n        padding: 0.5em;\n}\n#app-nav a {\n        text-align: center;\n        text-decoration: none;\n\t    font-weight: bold;\n\t    color: black;\n        font-family: halo;\n        font-size: 3em;\n        margin: auto 0.5em;\n}\n#app-content {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.fade-enter-active, .fade-leave-active {\n        transition: all .2s ease\n}\n.fade-enter, .fade-leave-active {\n        opacity: 0;\n}\n", ""]);
 
 // exports
 

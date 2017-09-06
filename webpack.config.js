@@ -10,15 +10,18 @@ var setupAPI = function () {
     case 'production':
       console.log('Using PRODUCTION settings');
       apiHost = '"http://emilyjewell.com"';
+      staticUrlBase = '"https://emily-jewell-media-production.s3.amazonaws.com"'
       break;
     case 'uat':
       console.log('Using UAT settings');
       apiHost = '"https://frozen-tor-73574.herokuapp.com/"';
+      staticUrlBase = '"https://emily-jewell-media-uat.s3.amazonaws.com"'
       break;
     case 'local':
     default:
-      apiHost = '"http://localhost:5000"';
       console.log('Using LOCAL settings');
+      apiHost = '"http://localhost:5000"';
+      staticUrlBase = '"http://localhost:5000"'
       break;
   }
 };
@@ -68,7 +71,8 @@ module.exports = {
   plugins: [
       new BundleTracker({path: __dirname, filename: './emilyjewell/webpack-stats.json'}),
       new webpack.DefinePlugin({
-        __API__: apiHost
+        __API__: apiHost,
+        __STATIC__: staticUrlBase
       })
   ],
 
