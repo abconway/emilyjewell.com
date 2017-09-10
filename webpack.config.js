@@ -10,7 +10,7 @@ var setupAPI = function () {
   switch(process.env.NODE_ENV) {
     case 'production':
       console.log('Using PRODUCTION settings');
-      apiHost = '"https://emily-jewell-production.herokuapp.com"';
+      apiHost = '"http://emilyjewell.com"';
       staticUrlBase = '"https://emily-jewell-media-production.s3.amazonaws.com"';
       break;
     case 'uat':
