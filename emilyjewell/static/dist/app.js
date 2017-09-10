@@ -24896,7 +24896,7 @@ function _defineProperty(obj, key, value) {
     }return obj;
 }
 
-var apiBaseUrl = "http://emilyjewell.com";
+var apiBaseUrl = "http://www.emilyjewell.com";
 var staticUrlBase = "https://emily-jewell-media-production.s3.amazonaws.com";
 
 exports.default = {
@@ -29184,7 +29184,7 @@ var content = __webpack_require__(156);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7cfde321", content, true);
+var update = __webpack_require__(3)("2540bef0", content, true);
 
 /***/ }),
 /* 212 */
