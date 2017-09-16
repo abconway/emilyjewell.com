@@ -12,6 +12,6 @@ make
 ```
 
 ### About:
-Built with Django and Vue.js  
+Built with Django, Django Rest Framework, Vue.js, and Vuex.
 Deployed on Heroku  
 Static assests stored in AWS S3  
